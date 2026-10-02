@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Invoice PDF</title>
+  <link rel="stylesheet" href="css/invoice.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+<div class="invoice">
+
+  <div class="title-block">
+    <h1>EXPORT OF SERVICES INVOICE</h1>
+    <p class="subtitle">(Export of Services without payment of duty under LUT / Bond)</p>
+  </div>
+
+  <div class="two-col">
+    <div class="col">
+      <div class="section-header">Supplier Details</div>
+      <div class="col-content">
+        <p><b>Name</b> <span id="pSupplierName"></span></p>
+        <p><b>Address</b> <span id="pSupplierAddress"></span></p>
+        <p><b>GSTIN</b> <span id="pGSTIN"></span></p>
+        <p><b>PAN/IEC</b> <span id="pPanIec"></span></p>
+        <p><b>E-mail id</b> <span id="pSupplierEmail"></span></p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="section-header">Invoice Details</div>
+      <div class="col-content">
+        <p><b>Invoice No</b> <span id="pInvoiceNumber"></span></p>
+        <p><b>Invoice Date</b> <span id="pBillingDate"></span></p>
+        <p><b>Place of Supply</b> : <span id="pPlaceOfSupply"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header full">Client Details</div>
+  <div class="col-content">
+    <p><b>Name</b> <span id="pClient"></span></p>
+    <p><b>Address</b> <span id="pClientAddress"></span></p>
+    <p><b>Country</b> <span id="pClientCountry"></span></p>
+    <p><b>E-mail id</b> <span id="pClientEmail"></span></p>
+  </div>
+
+  <h3 class="services-label">Details of Services:</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Description Of Services</th>
+        <th>SAC Code</th>
+        <th>Quantity</th>
+        <th>Rate</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody id="pItems"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" class="total-label">TOTAL IN FOREIGN CURRENCY</td>
+        <td id="pGrand" class="total-amount"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="declaration-values">
+    <p>Invoice Value in words : <span id="pValueInWords"></span> (in Foreign Currency)</p>
+    <p>Conversion Rate (if any)&hellip; <span id="pConversionRate"></span></p>
+    <p>Invoice Value in INR : <span id="pValueInINR"></span></p>
+  </div>
+
+  <p class="declaration">
+    <b><i>Declaration</i></b> : We hereby declare that the above-mentioned services are exported out of India under
+    Letter of Undertaking (LUT) without payment of Integrated Goods and Services Tax (IGST), in terms of Section 16
+    of the IGST Act, 2017. The payment for the same shall be received in convertible foreign exchange, in accordance
+    with applicable laws.
+  </p>
+
+  <div class="two-col bottom">
+    <div class="col">
+      <div class="section-header-plain">Bank Details</div>
+      <p><b>Bank Name :</b> <span id="pBankName"></span></p>
+      <p><b>Account Number:</b> <span id="pAccount"></span></p>
+      <p><b>IFSC Code:</b> <span id="pIFSC"></span></p>
+      <p><b>Swift Code:</b> <span id="pSwift"></span></p>
+    </div>
+    <div class="col">
+      <div class="section-header-plain italic">Authorised Signatory</div>
+      <p class="italic"><b>Name :</b> <span id="pSignatoryName"></span></p>
+      <p class="italic"><b>Designation :</b> <span id="pSignatoryDesignation"></span></p>
+      <p class="italic"><b>Signature &amp; Seal :</b></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="actions">
+  <button id="downloadBtn" onclick="downloadPDF()">Download PDF</button>
+</div>
+<p class="hint">Tip: in the print window, set "Destination" to <b>Save as PDF</b>, and turn on <b>Background graphics</b> (under "More settings") so the colors print too.</p>
+
+</body>
+</html>

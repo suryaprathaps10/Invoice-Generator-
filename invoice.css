@@ -1,0 +1,245 @@
+/* ===================== RESET ===================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", serif;
+  color: #111;
+  background: #fff;
+}
+
+/* ===================== PAGE SETUP ===================== */
+@page {
+  size: A4;
+  margin: 15mm;
+}
+
+/* ===================== INVOICE WRAPPER ===================== */
+.invoice {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1.5px solid #333;
+  background: #fff;
+}
+
+/* ===================== TITLE ===================== */
+.title-block {
+  text-align: center;
+  border-bottom: 1.5px solid #333;
+  padding: 10px;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: #1b2a5b;
+}
+
+.title-block .subtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ===================== TWO COLUMN LAYOUT ===================== */
+/* table/table-cell (not flex) because browsers ignore break-inside:avoid
+   on flex containers when printing/saving to PDF — this was causing the
+   Bank Details / Authorised Signatory content to separate from its header. */
+.two-col {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-bottom: 1.5px solid #333;
+}
+
+.two-col .col {
+  display: table-cell;
+  vertical-align: top;
+  width: 50%;
+  padding: 0;
+}
+
+.two-col .col:first-child {
+  border-right: 1px solid #333;
+}
+
+.two-col.bottom {
+  border-bottom: none;
+  border-top: 1px solid #333;
+  margin-top: 16px;
+}
+
+/* ===================== SECTION HEADERS (navy bars, matches xlsx) ===================== */
+.section-header {
+  background-color: #1b2a5b;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 6px 16px;
+  font-size: 14px;
+}
+
+.section-header-plain {
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+  padding: 8px 16px 4px;
+  font-size: 14px;
+}
+
+.section-header-plain.italic {
+  font-style: italic;
+}
+
+.col-content {
+  padding: 8px 16px;
+}
+
+.invoice p {
+  margin: 4px 0;
+  font-size: 13px;
+  padding: 0 16px;
+}
+
+.col-content p {
+  padding: 0;
+}
+
+.invoice p b {
+  display: inline-block;
+  min-width: 90px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* ===================== SERVICES LABEL ===================== */
+.services-label {
+  margin: 12px 16px 4px;
+  font-size: 14px;
+}
+
+/* ===================== TABLE ===================== */
+table {
+  width: calc(100% - 32px);
+  margin: 0 16px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+thead th {
+  font-size: 13px;
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #333;
+  background-color: #e9ecef;
+}
+
+tbody td {
+  font-size: 13px;
+  padding: 8px;
+  border: 1px solid #999;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+tbody td:nth-child(2) {
+  text-align: left;
+}
+
+tfoot td {
+  border: 1px solid #333;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.total-label {
+  text-align: right;
+}
+
+.total-amount {
+  text-align: center;
+}
+
+/* Column widths */
+th:nth-child(1), td:nth-child(1) { width: 8%; }
+th:nth-child(2), td:nth-child(2) { width: 34%; }
+th:nth-child(3), td:nth-child(3) { width: 14%; }
+th:nth-child(4), td:nth-child(4) { width: 12%; }
+th:nth-child(5), td:nth-child(5) { width: 14%; }
+th:nth-child(6), td:nth-child(6) { width: 18%; }
+
+/* ===================== VALUE DECLARATIONS ===================== */
+.declaration-values {
+  margin-top: 10px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+}
+
+/* ===================== DECLARATION ===================== */
+.declaration {
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 8px 16px !important;
+  border-bottom: 1px solid #333;
+}
+
+/* ===================== FOOTER ACTIONS ===================== */
+.actions {
+  margin: 20px auto 4px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.actions button {
+  padding: 10px 24px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.hint {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+/* ===================== PRINT CLEANUP & PAGINATION ===================== */
+.title-block,
+.two-col,
+.section-header,
+.section-header-plain,
+table,
+thead,
+tr,
+.declaration-values,
+.declaration,
+.two-col.bottom {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+@media print {
+  .actions,
+  .hint {
+    display: none;
+  }
+
+  /* .invoice's 900px max-width (~238mm) is wider than the printable area
+     on A4 with 15mm margins (~180mm), so it was being clipped at the page
+     edge instead of shown in full — that's what was cutting off the
+     border. Fill the printable area exactly instead. */
+  .invoice {
+    max-width: none;
+    width: 100%;
+  }
+}

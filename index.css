@@ -1,0 +1,165 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f2f4f8;
+  color: #333;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container {
+  max-width: 920px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= HEADINGS ================= */
+h1 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+/* ================= SECTION HEADERS ================= */
+h3 {
+  margin-top: 28px;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  font-size: 16px;
+  color: #1b2a5b;
+  border-bottom: 2px solid #1b2a5b;
+}
+
+/* ================= LABELS & INPUTS ================= */
+label {
+  display: block;
+  margin-top: 15px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  background: #fff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+input[readonly] {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  margin-top: 25px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+thead th {
+  background: #f9fafb;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  margin-top: 20px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Delete row button */
+table button {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 13px;
+  background: #ef4444;
+}
+
+table button:hover {
+  background: #dc2626;
+}
+
+/* ================= TOTAL ================= */
+.total {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 2px dashed #d1d5db;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}

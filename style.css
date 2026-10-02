@@ -1,0 +1,145 @@
+/* ===== HARD RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "Times New Roman", serif;
+  color: #111;
+}
+
+/* ===== ADMIN / FORM PAGES ===== */
+.container {
+  max-width: 820px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #fff;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #444;
+  padding: 6px;
+  font-size: 14px;
+}
+
+/* ===== PDF ROOT ===== */
+#invoice {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== A4 PAGE ===== */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: #fff;
+  page-break-after: always;
+}
+
+/* ===== CONTENT MARGINS (REAL MARGINS) ===== */
+.page-content {
+  padding: 20mm 18mm;
+}
+
+/* ===== INVOICE LAYOUT ===== */
+.invoice-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.invoice-meta {
+  text-align: right;
+}
+
+.invoice-section h3 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+th {
+  border-bottom: 2px solid #000;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+  padding: 6px 4px;
+}
+
+.center { text-align: center; }
+.right { text-align: right; }
+
+.invoice-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #000;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.payment-section {
+  margin-top: 28px;
+  border: 1.5px solid #000;
+  padding: 12px;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 6px;
+}
+
+.signature-area {
+  margin-top: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signature-line {
+  width: 200px;
+  border-top: 1px solid #000;
+}
+
+/* ===== PAGE BREAK SAFETY ===== */
+table,
+tr,
+.payment-section,
+.signature-area {
+  page-break-inside: avoid;
+}
+
+/* ===== UI ===== */
+.actions {
+  text-align: center;
+  margin: 20px;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .actions {
+    display: none;
+  }
+}

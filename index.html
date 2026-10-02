@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Invoice</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Export of Services Invoice</h1>
+
+  <h3>Invoice Details</h3>
+
+  <label>Invoice Date</label>
+  <input type="date" id="billingDate">
+
+  <label>Place of Supply</label>
+  <input id="placeOfSupply" value="Outside India" readonly>
+
+  <h3>Client Details</h3>
+
+  <label>Client Name</label>
+  <input id="clientName">
+
+  <label>Client Address</label>
+  <textarea id="clientAddress"></textarea>
+
+  <label>Country</label>
+  <input id="clientCountry">
+
+  <label>Client E-mail id</label>
+  <input id="clientEmail">
+
+  <h3>Details of Services</h3>
+
+  <label>Currency</label>
+  <select id="currency">
+    <option value="$">USD ($)</option>
+    <option value="€">EUR (€)</option>
+    <option value="£">GBP (£)</option>
+    <option value="AED">AED</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Description Of Services</th>
+        <th>SAC Code</th>
+        <th>Qty</th>
+        <th>Rate</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="items"></tbody>
+  </table>
+
+  <button onclick="addItem()">+ Add Item</button>
+
+  <p class="total">Total in Foreign Currency: <span id="currencyLabel">$</span> <span id="grand">0.00</span></p>
+
+  <h3>Value Declaration</h3>
+
+  <label>Invoice Value in Words (Foreign Currency)</label>
+  <input id="valueInWords" placeholder="e.g. Five Hundred US Dollars Only">
+
+  <label>Conversion Rate (if any)</label>
+  <input id="conversionRate" type="number" step="0.0001" placeholder="e.g. 83.25">
+
+  <label>Invoice Value in INR</label>
+  <input id="valueInINR" type="number" step="0.01" placeholder="Auto-calculated if conversion rate is set">
+
+  <button onclick="previewInvoice()">Preview</button>
+</div>
+
+</body>
+</html>
